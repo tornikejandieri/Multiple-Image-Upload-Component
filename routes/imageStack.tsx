@@ -9,6 +9,9 @@ const screens = {
   },
   UseImagePicker: {
     screen: useImagePicker,
+    navigationOptions: {
+      headerShown: false,
+    },
   },
 }
 

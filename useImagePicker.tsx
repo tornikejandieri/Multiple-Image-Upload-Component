@@ -1,39 +1,32 @@
 import { ImagePicker, Album, Asset } from "expo-image-multiple-picker"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
-const useImagePicker = ({ navigation }: any) => {
-  const [open, setOpen] = useState(false)
+const useImagePicker: React.FC = ({ navigation }: Function | any) => {
   const [album, setAlbum] = useState<Album | undefined>()
   const [assets, setAssets] = useState<Asset[]>([])
 
-  useEffect(() => {
-    setOpen(true)
-  }, [])
-
-  if (open) {
-    return (
-      <ImagePicker
-        onSave={(assets) => {
-          setAssets(assets)
-          setOpen(false)
-          navigation.push("Home")
-        }}
-        onCancel={() => {
-          console.log("User cancelled image picker")
-          setAssets([])
-          setAlbum(undefined)
-          setOpen(false)
-          navigation.push("Home")
-        }}
-        onSelectAlbum={(album) => setAlbum(album)}
-        selected={assets}
-        selectedAlbum={album}
-        multiple
-        noAlbums
-        limit={5}
-      />
-    )
-  }
+  return (
+    <ImagePicker
+      onSave={(assets) => {
+        setAssets(assets)
+        console.log(assets)
+        navigation.goBack()
+      }}
+      onCancel={() => {
+        console.log("User cancelled image picker")
+        setAssets([])
+        setAlbum(undefined)
+        navigation.goBack()
+      }}
+      onSelectAlbum={(album) => setAlbum(album)}
+      selected={assets}
+      selectedAlbum={album}
+      multiple
+      noAlbums
+      limit={5}
+      galleryColumns={3}
+    />
+  )
 }
 
 export default useImagePicker

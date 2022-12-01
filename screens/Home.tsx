@@ -1,9 +1,6 @@
 import { Text, View, Button } from "react-native"
 
-interface Props {
-  navigation: any
-}
-const Home: React.FC<Props> = ({ navigation }) => {
+const Home: React.FC = ({ navigation }: Function | any) => {
   const handlePress = () => {
     navigation.navigate("UseImagePicker")
   }
