@@ -1,7 +1,8 @@
 import { ImagePicker, Album, Asset } from "expo-image-multiple-picker"
 import { useState } from "react"
+import { Props } from "./routes/imageStack"
 
-const useImagePicker: React.FC = ({ navigation }: Function | any) => {
+const useImagePicker = ({ navigation }: Props) => {
   const [album, setAlbum] = useState<Album | undefined>()
   const [assets, setAssets] = useState<Asset[]>([])
 

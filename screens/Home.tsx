@@ -1,6 +1,7 @@
 import { Text, View, Button } from "react-native"
+import { HomeProps } from "../routes/imageStack"
 
-const Home: React.FC = ({ navigation }: Function | any) => {
+const Home = ({ navigation }: HomeProps) => {
   const handlePress = () => {
     navigation.navigate("UseImagePicker")
   }
